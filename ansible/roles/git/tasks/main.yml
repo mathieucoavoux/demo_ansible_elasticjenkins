@@ -1,0 +1,4 @@
+---
+- import_tasks: "roles/git/tasks/git_install.yml"
+  tags:
+    - git_install

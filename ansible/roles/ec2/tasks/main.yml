@@ -1,0 +1,4 @@
+---
+- import_tasks: "roles/ec2/tasks/ec2_creation.yml"
+  tags:
+    - ec2_creation

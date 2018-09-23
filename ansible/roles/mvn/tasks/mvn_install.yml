@@ -1,0 +1,23 @@
+---
+- name: "Create mvn repository if it does not exists yet"
+  file:
+    path: "{{mvn_fs}}"
+    state: directory
+    mode: 0755
+
+- name: "Download maven"
+  get_url:
+    url: "{{mvn_repository}}"
+    dest: "{{mvn_fs}}"
+
+- name: "Unarchive maven"
+  unarchive:
+    src: "{{mvn_fs}}/{{mvn_archive}}"
+    dest: "{{mvn_fs}}"
+    remote_src: yes
+    mode: 0755
+
+- name: "Delete archive"
+  file:
+    path: "{{mvn_fs}}/{{mvn_archive}}"
+    state: absent

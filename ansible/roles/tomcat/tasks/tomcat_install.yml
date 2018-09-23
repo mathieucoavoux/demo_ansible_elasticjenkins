@@ -1,0 +1,37 @@
+---
+#Those tasks need to be run as root
+- name: "Create group"
+  group:
+    name: "{{tomcat_group}}"
+
+- name: "Create user"
+  user:
+    name: "{{tomcat_user}}"
+
+- name: "Create tomcat root directory if it does not exist"
+  file:
+    path: "{{tomcat_fs}}"
+    state: directory
+    owner: "{{tomcat_user}}"
+    group: "{{tomcat_group}}"
+
+#Install the tomcat version
+- name: "Download tomcat archive"
+  get_url:
+    url: "{{tomcat_repository}}"
+    dest: "{{tomcat_fs}}"
+
+- name: "Extract archive"
+  unarchive:
+    src: "{{tomcat_fs}}/{{tomcat_archive_name}}"
+    dest: "{{tomcat_fs}}/"
+    remote_src: yes
+    owner: "{{tomcat_user}}"
+    group: "{{tomcat_group}}"
+
+- name: "Delete the archive"
+  file:
+    path: "{{tomcat_fs}}/{{tomcat_archive_name}}"
+    state: absent
+
+

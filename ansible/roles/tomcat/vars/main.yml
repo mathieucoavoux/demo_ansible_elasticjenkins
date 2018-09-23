@@ -1,0 +1,13 @@
+---
+tomcat_user: "tomcat"
+tomcat_group: "tomcat"
+tomcat_fs: "/opt/tomcat"
+tomcat_version_name: "tomcat-8"
+tomcat_version: "8.0.53"
+tomcat_package_name: "apache-tomcat-{{tomcat_version}}"
+tomcat_fs_root: "{{tomcat_fs}}/{{tomcat_package_name}}"
+tomcat_archive_name: "{{tomcat_package_name}}.tar.gz"
+tomcat_repository: "http://www-us.apache.org/dist/tomcat/{{tomcat_version_name}}/v{{tomcat_version}}/bin/{{tomcat_archive_name}}"
+custom_env:
+  CATALINA_HOME: "{{tomcat_fs_root}}"
+  JAVA_HOME: "{{java_home}}"

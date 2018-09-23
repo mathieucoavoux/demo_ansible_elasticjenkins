@@ -1,0 +1,19 @@
+---
+#Those tasks need to be run as root
+#Install the latest version of Java if this is not the case"
+- name: "Install Java"
+  yum:
+    name: "{{java_version_package}}"
+    state: latest
+
+- name: "Get binary path"
+  shell: |
+    dirname $(dirname $(ls -c1 {{java_library_path}}/{{java_version_pattern}}*/bin/java|sort -rn|tail -n1))
+  register: chk_java_home
+- fail:
+    msg: "Can not get JAVA_HOME"
+  when: chk_java_home.rc != 0
+
+- name: "Set java_home"
+  set_fact:
+    java_home: "{{chk_java_home.stdout}}"

@@ -1,0 +1,21 @@
+---
+#Start tomcat
+- name: "Start tomcat"
+  shell: |
+    su {{tomcat_user}} -c {{tomcat_fs_root}}/bin/startup.sh
+
+- name: "Pause few seconds to see if tomcat did not crash"
+  pause:
+    seconds: 10
+
+- name: "Check if tomcat is running"
+  shell: |
+    ps -o user,pid,cmd -u {{tomcat_user}}|grep {{tomcat_version}}|grep -v grep|awk -F' ' '{print $2}' || echo 0
+  register: tomcat_pid
+
+- fail:
+    msg: "Tomcat is not started"
+  when: tomcat_pid.rc != 0 or tomcat_pid.stdout == 0
+
+- debug:
+    msg: "Tomcat is started with the pid: {{tomcat_pid.stdout}}"

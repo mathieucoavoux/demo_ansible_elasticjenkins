@@ -1,0 +1,5 @@
+---
+- import_tasks: "roles/mvn/tasks/mvn_install.yml"
+  tags:
+    - mvn_install
+

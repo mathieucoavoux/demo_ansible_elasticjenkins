@@ -1,0 +1,9 @@
+---
+mvn_fs: "/opt/maven"
+mvn_version_name: "maven-3"
+mvn_version: "3.5.4"
+mvn_package: "apache-maven-{{mvn_version}}"
+mvn_fs_root: "{{mvn_fs}}/{{mvn_package}}"
+mvn_archive: "{{mvn_package}}-bin.tar.gz"
+mvn_repository: "http://www-us.apache.org/dist/maven/{{mvn_version_name}}/{{mvn_version}}/binaries/{{mvn_archive}}"
+mvn_path: "{{mvn_fs_root}}/bin/"

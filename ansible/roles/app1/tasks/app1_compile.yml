@@ -1,0 +1,27 @@
+---
+- include_vars: "roles/app1/vars/app1_compile.yml"
+
+- name: "Create source directory"
+  file:
+    path: "{{app1_source}}"
+    state: directory
+
+- name: "Get source code"
+  get_url:
+    url: "{{repository}}"
+    dest: "{{app1_source}}"
+
+- name: "Unarchive zip"
+  unarchive:
+    src: "{{app1_source}}/{{archive}}"
+    dest: "{{app1_source}}/"
+    remote_src: yes
+
+- name: "Compile application"
+  shell: |
+    mvn -DskipTests clean package
+  args:
+    chdir: "{{app1_source}}/{{package}}"
+  environment:
+    PATH: "{{ansible_env.PATH}}:{{mvn_path}}"
+    JAVA_HOME: "{{java_home}}"

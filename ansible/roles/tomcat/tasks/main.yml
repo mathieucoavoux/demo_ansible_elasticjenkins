@@ -1,0 +1,16 @@
+---
+- import_tasks: "roles/tomcat/tasks/tomcat_install.yml"
+  tags:
+    - tomcat_install
+
+- import_tasks: "roles/tomcat/tasks/tomcat_deploy.yml"
+  tags:
+    - tomcat_deploy
+
+- import_tasks: "roles/tomcat/tasks/tomcat_start.yml"
+  tags:
+    - tomcat_start
+
+- import_tasks: "roles/tomcat/tasks/tomcat_stop.yml"
+  tags:
+    - tomcat_stop

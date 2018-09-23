@@ -1,0 +1,10 @@
+---
+- import_tasks: "roles/java/tasks/java_install.yml"
+  tags:
+    - tomcat_install
+
+- import_tasks: "roles/java/tasks/java_version.yml"
+  tags:
+    - tomcat_start
+    - tomcat_stop
+    - app1_compile

@@ -1,0 +1,2 @@
+---
+app1_source: "{{ansible_env.HOME}}/app1"

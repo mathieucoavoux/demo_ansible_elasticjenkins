@@ -1,0 +1,4 @@
+---
+java_library_path: "/usr/lib/jvm"
+java_version_package: "java-1.8.0-openjdk-devel"
+java_version_pattern: "java-1.8.0-openjdk"

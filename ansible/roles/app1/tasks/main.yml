@@ -1,0 +1,4 @@
+---
+- import_tasks: "roles/app1/tasks/app1_compile.yml"
+  tags:
+    - app1_compile

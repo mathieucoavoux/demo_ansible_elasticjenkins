@@ -1,0 +1,4 @@
+---
+repository: "https://github.com/joakim666/spring-boot-spring-loaded-java8-example/archive/master.zip"
+package: "spring-boot-spring-loaded-java8-example-master"
+archive: "{{package}}.zip"

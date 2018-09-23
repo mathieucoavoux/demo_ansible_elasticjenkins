@@ -1,0 +1,10 @@
+---
+#Copy the WAR archive to the webapps folder
+#Input parameters:
+#ENV_URL_ARTIFACTORY: The URL where to download the artifactory
+#ENV_WAR_NAME: The war name
+
+- name: "Download WAR"
+  get_url:
+    url: "{{ENV_URL_ARTIFACTORY}}/{{ENV_WAR_NAME}}"
+    dest: "{{tomcat_fs_root}}/webapps/"
