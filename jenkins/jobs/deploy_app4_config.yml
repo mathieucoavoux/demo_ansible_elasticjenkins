@@ -1,0 +1,8 @@
+---
+title: "DEPARTMENT2/Deploy_App4"
+parameters:
+  - name: APP_VERSION
+    type: String
+    default_value: ""
+    description: "Application version"
+concurrent: false

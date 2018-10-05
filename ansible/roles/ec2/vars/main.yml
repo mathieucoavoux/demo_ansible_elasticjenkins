@@ -1,0 +1,2 @@
+---
+wait_time: "{% if APP_VERSION is defined and APP_VERSION == '12.0.0'}300{%else%}5{%endif%}"

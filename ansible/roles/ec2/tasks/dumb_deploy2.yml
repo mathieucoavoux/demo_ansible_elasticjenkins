@@ -1,0 +1,33 @@
+---
+- name: "Run docker image"
+  shell: |
+    echo "docker run"
+
+- name: "Get docker IPs"
+  set_fact:
+    myip:
+      - "1.101.1.1"
+      - "1.101.1.2"
+
+- name: "Push the IP to our own loadbalancer"
+  shell: |
+    echo config lb {{item}}
+  with_items:
+    - "{{myip}}"
+
+- name: "Push the docker container to our monitoring system"
+  shell: |
+    echo config monitoring {{item}}
+  with_items:
+    - "{{myip}}"
+
+- name: "Test the application"
+  shell: |
+    [[ "{{APP_VERSION}}" =~ .*-b ]] && exit 1
+  register: result
+  ignore_errors: yes
+
+- name: "Fail if the result return NOT OK"
+  fail:
+    msg: "Tests failed. Rolling back..."
+  when: result.rc != 0

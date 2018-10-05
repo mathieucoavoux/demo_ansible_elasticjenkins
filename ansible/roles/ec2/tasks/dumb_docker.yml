@@ -1,0 +1,14 @@
+---
+- name: "Create docker image"
+  shell: |
+    echo docker build
+
+- name: "Create docker tag"
+  shell: |
+    echo docker tag
+
+- name: "Push docker image"
+  shell: |
+    echo "It will takes sometimes"
+    sleep {{wait_time}}
+    echo "docker push"

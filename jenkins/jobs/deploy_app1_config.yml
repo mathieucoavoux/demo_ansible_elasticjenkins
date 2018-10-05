@@ -1,0 +1,8 @@
+---
+title: "DEPARTMENT1/Deploy_App1"
+parameters:
+  - name: ENV_EC2_NUMBER
+    type: String
+    default_value: ""
+    description: "Number of instance"
+concurrent: false
