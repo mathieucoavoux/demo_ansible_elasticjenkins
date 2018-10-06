@@ -26,9 +26,9 @@
     instance_tags:
       Name: "{{ENV_INSTANCE_TAG_NAME}}"
       volumes:
-    - device_name: /dev/xvda
-      volume_type: gp2
-      volume_size: 8
+        - device_name: /dev/xvda
+          volume_type: gp2
+          volume_size: 8
     assign_public_ip: no
     register: amazon_creation
 
