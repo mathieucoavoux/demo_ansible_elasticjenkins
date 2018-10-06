@@ -1,13 +1,13 @@
 ---
 
-- import_tasks: "roles/ec2/tasks/dumb_docker.yml"
+- import_tasks: "roles/docker/tasks/dumb_docker.yml"
   tags:
     - dumb_docker
 
-- import_tasks: "roles/ec2/tasks/dumb_deploy.yml"
+- import_tasks: "roles/docker/tasks/dumb_deploy.yml"
   tags:
     - dumb_deploy
 
-- import_tasks: "roles/ec2/tasks/dumb_deploy.yml"
+- import_tasks: "roles/docker/tasks/dumb_deploy.yml"
   tags:
     - dumb_deploy2
