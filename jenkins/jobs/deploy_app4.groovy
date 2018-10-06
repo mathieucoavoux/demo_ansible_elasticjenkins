@@ -9,7 +9,7 @@ pipeline {
                             ansible-playbook \
                             -c local \
                             -t dumb_docker \
-                            $PROJECT_DIRECTORY/ansible/ec2.yml \
+                            $PROJECT_DIRECTORY/ansible/docker.yml \
                             -e APP_VERSION=$APP_VERSION \
                             -e ENV_AUTO_CORRELATION_ID=$AUTO_CORRELATION_ID'
                     }
@@ -25,7 +25,7 @@ pipeline {
                             ansible-playbook \
                             -c local \
                             -t dumb_deploy2 \
-                            $PROJECT_DIRECTORY/ansible/ec2.yml \
+                            $PROJECT_DIRECTORY/ansible/docker.yml \
                             -e APP_VERSION=$APP_VERSION \
                             -e ENV_AUTO_CORRELATION_ID=$AUTO_CORRELATION_ID'
                     }
